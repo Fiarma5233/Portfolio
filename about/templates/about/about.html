@@ -1,0 +1,15 @@
+
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>À Propos de Moi</h2>
+{% if about %}
+    <img src="{{ about.profile_image.url }}" alt="Ma Photo">
+    <p>{{ about.description }}</p>
+    <p>{{ about.goals }}</p>
+{% else %}
+    <p>Aucune information disponible.</p>
+{% endif %}
+{% endblock %}
