@@ -1,23 +1,93 @@
-#success-popup {
-    position: fixed;
-    top: 20px;
-    right: 20px;
+/* Conteneur principal */
+.contact-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Titre */
+.contact-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Formulaire */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Groupe de formulaire */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+/* Bouton d'envoi */
+.submit-button {
     background-color: #4CAF50; /* Vert */
     color: white;
-    padding: 15px;
+    padding: 10px 20px;
+    border: none;
     border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #45a049; /* Vert plus foncé */
+}
+
+/*  */
+/* Pop-up de succès */
+.success-popup {
+    position: fixed;
+    top: 20px; /* Position en haut */
+    left: 50%; /* Centrer horizontalement */
+    transform: translateX(-50%); /* Ajuster pour un centrage parfait */
+    background-color: #4CAF50; /* Vert */
+    color: white;
+    padding: 15px 30px; /* Plus large pour mieux voir le message */
+    border-radius: 5px;
     display: none;
+    z-index: 1000; /* S'assurer qu'il est au-dessus des autres éléments */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre pour un effet flottant */
     animation: fadeIn 0.5s, fadeOut 0.5s 4.5s;
 }
 
+/* Animation d'apparition */
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { opacity: 0; top: 0; }
+    to { opacity: 1; top: 20px; }
 }
 
+/* Animation de disparition */
 @keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; }
+    from { opacity: 1; top: 20px; }
+    to { opacity: 0; top: 0; }
 }

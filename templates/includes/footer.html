@@ -1,4 +1,44 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
+
 <footer>
-    <p>&copy; 2023 Mon Portfolio. Tous droits réservés.</p>
-    <p>Suivez-moi sur <a href="https://www.linkedin.com/in/fiarma/">LinkedIn</a> et <a href="https://github.com/Fiarma5233/">GitHub</a>.</p>
+    <div class="footer-container">
+        <!-- Section des réseaux sociaux -->
+        <div class="social-links">
+            <h3>Suivez-moi</h3>
+            <ul>
+                <li>
+                    <a href="https://www.linkedin.com/in/fiarma/" target="_blank">
+                        <img src="{% static 'images/linkedin.jpeg' %}" alt="LinkedIn">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/Fiarma5233/" target="_blank">
+                        <img src="{% static 'images/github.jpeg' %}" alt="GitHub">
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Section des réalisations -->
+        <div class="portfolio-links">
+            <h3>Mes Réalisations</h3>
+            <div class="portfolio-grid">
+                <ul>
+                    <li><a href="https://hack2hire-techtech-datascience-18.onrender.com/" target="_blank">Hack2Hire 2024</a></li>
+                    <li><a href="https://www.site2.com" target="_blank">Site Web 2</a></li>
+                    <li><a href="https://www.site3.com" target="_blank">Site Web 3</a></li>
+                    <li><a href="https://www.site4.com" target="_blank">Site Web 4</a></li>
+                    <li><a href="https://www.site5.com" target="_blank">Site Web 5</a></li>
+                    <li><a href="https://www.site6.com" target="_blank">Site Web 6</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright dynamique -->
+    <div class="footer-copyright">
+        <p>&copy; {{ current_year }} Mon Portfolio. Tous droits réservés.</p>
+    </div>
 </footer>

@@ -1,15 +1,69 @@
-
-
-
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-<h2>À Propos de Moi</h2>
-{% if about %}
-    <img src="{{ about.profile_image.url }}" alt="Ma Photo">
-    <p>{{ about.description }}</p>
-    <p>{{ about.goals }}</p>
-{% else %}
-    <p>Aucune information disponible.</p>
-{% endif %}
+<link rel="stylesheet" href="{% static 'about/css/about.css' %}">
+<div class="about-container">
+    <h2>À Propos de Moi</h2>
+
+    <div class="about-grid">
+        <!-- 1x1 : Image -->
+        <div class="about-image">
+            <img src="{% static 'about/images/Fiarma.jpeg' %}" alt="Fiarma">
+        </div>
+
+        <!-- 1x2 : Description et Objectif -->
+        <div class="about-description-goals">
+            <p class="about-description">
+                Étudiant en Licence 3 en Génie Logiciel option Analyse de Données, je
+                suis passionné par l'IA et l'exploitation des données pour résoudre des
+                problèmes complexes.
+            </p>
+            <p class="about-goals">
+                Mon objectif est de contribuer à des projets innovants en tant que Data Analyst
+                ou Data Scientist, en appliquant mes compétences en analyse de données,
+                machine learning et visualisation pour optimiser les processus décisionnels
+                et créer de la valeur ajoutée. Je souhaite intégrer une équipe dynamique
+                pour continuer à apprendre et participer à des projets à fort impact.
+            </p>
+        </div>
+
+        <!-- 2x1 : Compétences et Certifications -->
+        <div class="about-skills-certifications">
+            <section class="about-skills">
+                <h3>Compétences Acquises</h3>
+                <ul>
+                    <li>Collecte, Traitement et Chargement de données (ETL)</li>
+                    <li>Analyse de données avec Python</li>
+                    <li>Visualisation des données</li>
+                </ul>
+            </section>
+
+            <section class="about-certifications">
+                <h3>Certifications</h3>
+                <ul>
+                    <li>Google Data Analysis</li>
+                    <li>IBM Data Analysis</li>
+                    <li>IA avec DeepLearning.AI</li>
+                </ul>
+            </section>
+        </div>
+
+        <!-- 2x2 : Projets Réalisés -->
+        <div class="about-projects">
+            <h3>Projets Réalisés</h3>
+            <ol>
+                <li><strong>Prévision de la distribution des produits agricoles</strong> : Modélisation pour prévoir la demande et optimiser les calendriers de récolte.</li>
+                <li><strong>Indicateurs de résilience du marché de l'énergie</strong> : Analyse des vulnérabilités et préparation aux perturbations du marché énergétique.</li>
+                <li><strong>Prévisions d'énergies renouvelables</strong> : Utilisation de pandas et de techniques de machine learning pour prédire la production d'énergies renouvelables.</li>
+                <li><strong>Prévisions de séries chronologiques pour les ventes de produits de boulangerie</strong> : Prédiction des quantités vendues à l'aide de données transactionnelles.</li>
+                <li><strong>Data Tour 2024</strong> : Développement d'un modèle pour prévoir les besoins en énergies renouvelables des pays africains, classé 2ème au niveau national.</li>
+                <li><strong>Compétition sur la synergie entre énergies renouvelables et IA</strong> : Participation à une compétition axée sur l'intégration de l'IA dans le secteur des énergies renouvelables.</li>
+                <li><strong>Analyse des sentiments</strong> : Analyse des commentaires collectés sur la page Facebook de l'Université Virtuelle du Burkina Faso en utilisant Python et les bibliothèques NLP (Natural Language Processing).</li>
+                <li><strong>Modèle prédictif pour les prêts bancaires</strong> : Développement d'un modèle prédictif en R pour évaluer la probabilité d'octroi de prêts bancaires, en utilisant R-Studio et Kaggle.</li>
+                <li><strong>Plateforme de gestion de bourses d'études</strong> : Conception et développement d'une plateforme web avec Python, Flask, PostgreSQL, Google Authentication, JavaScript, HTML et CSS.</li>
+            </ol>
+        </div>
+    </div>
+</div>
 {% endblock %}

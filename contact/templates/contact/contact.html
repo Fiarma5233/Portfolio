@@ -1,29 +1,42 @@
-
-
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-<h2>Contactez-moi</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Envoyer</button>
-</form>
+<link rel="stylesheet" href="{% static 'contact/css/contact.css' %}">
+<div class="contact-container">
+    <h2>Contactez-moi</h2>
+    <form method="post" class="contact-form">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.name.label_tag }}
+            {{ form.name }}
+        </div>
+        <div class="form-group">
+            {{ form.email.label_tag }}
+            {{ form.email }}
+        </div>
+        <div class="form-group">
+            {{ form.message.label_tag }}
+            {{ form.message }}
+        </div>
+        <button type="submit" class="submit-button">Envoyer</button>
+    </form>
 
-<!-- Pop-up de succès -->
-{% if success %}
-<div id="success-popup" style="position: fixed; top: 20px; right: 20px; background-color: green; color: white; padding: 15px; border-radius: 5px; display: none;">
-    Message envoyé avec succès !
+    <!-- Pop-up de succès -->
+    {% if success %}
+    <div id="success-popup" class="success-popup">
+        Message envoyé avec succès !
+    </div>
+
+    <script>
+        // Afficher le pop-up
+        document.getElementById('success-popup').style.display = 'block';
+
+        // Rediriger après 5 secondes
+        setTimeout(function() {
+            window.location.href = "{% url 'about' %}";
+        }, 5000);  // 5000 ms = 5 secondes
+    </script>
+    {% endif %}
 </div>
-
-<script>
-    // Afficher le pop-up
-    document.getElementById('success-popup').style.display = 'block';
-
-    // Rediriger après 5 secondes
-    setTimeout(function() {
-        window.location.href = "{% url 'about' %}";
-    }, 5000);  // 5000 ms = 5 secondes
-</script>
-{% endif %}
 {% endblock %}

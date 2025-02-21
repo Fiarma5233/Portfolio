@@ -23,7 +23,7 @@
     </div>
 </nav>
 
-<style>
+<!-- <style>
     /* Navbar de base */
 nav {
     background-color: #333;
@@ -129,8 +129,128 @@ nav {
         display: block;
     }
 }
-</style>
+</style> -->
 
+
+<style>
+    /* Réinitialiser les marges et paddings par défaut */
+* {
+    margin: 10;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* Navbar de base */
+nav {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    position: fixed; /* Fixer la navbar en haut */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* S'assurer que la navbar est au-dessus des autres éléments */
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.navbar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-links li {
+    margin-left: 20px;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+    color: #4CAF50; /* Couleur au survol */
+}
+
+/* Bouton du menu mobile */
+.navbar-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hamburger {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    position: relative;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    transition: transform 0.3s;
+}
+
+.hamburger::before {
+    top: -8px;
+}
+
+.hamburger::after {
+    top: 8px;
+}
+
+/* Styles pour les écrans mobiles */
+@media (max-width: 768px) {
+    .navbar-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        left: 0;
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+
+    .navbar-links li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .navbar-toggle {
+        display: block;
+    }
+}
+</style>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const navbarToggle = document.querySelector('.navbar-toggle');
