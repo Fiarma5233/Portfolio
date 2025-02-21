@@ -1,12 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
-</head>
-<body>
-    
-    <h2>Blog Page</h2>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Blog</h2>
+<ul>
+    {% for post in blogs %}
+    <li>
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.content }}</p>
+        <p>Publié le {{ post.date_posted }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

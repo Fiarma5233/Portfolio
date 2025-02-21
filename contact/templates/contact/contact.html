@@ -1,12 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact page</title>
-</head>
-<body>
-    
-    <h2>Welcome</h2>
-</body>
-</html>
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Contactez-moi</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Envoyer</button>
+</form>
+
+<!-- Pop-up de succès -->
+{% if success %}
+<div id="success-popup" style="position: fixed; top: 20px; right: 20px; background-color: green; color: white; padding: 15px; border-radius: 5px; display: none;">
+    Message envoyé avec succès !
+</div>
+
+<script>
+    // Afficher le pop-up
+    document.getElementById('success-popup').style.display = 'block';
+
+    // Rediriger après 5 secondes
+    setTimeout(function() {
+        window.location.href = "{% url 'about' %}";
+    }, 5000);  // 5000 ms = 5 secondes
+</script>
+{% endif %}
+{% endblock %}

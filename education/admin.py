@@ -8,4 +8,4 @@ from .models import Education
 class EducationAdmin(admin.ModelAdmin):
     list_display = ('degree', 'institution', 'start_year', 'end_year')  # Champs à afficher dans la liste
     search_fields = ('degree', 'institution')        # Champs pour la recherche
-    list_filter = ('end_year',)                         # Filtres pour la liste
+    list_filter = ('start_year', 'end_year')                         # Filtres pour la liste

@@ -1,12 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Education</title>
-</head>
-<body>
-    
-    <h2>Education Page</h2>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Mon Cursus Scolaire</h2>
+<ul>
+    {% for education in educations %}
+    <li>
+        <h3>{{ education.degree }}</h3>
+        <p>{{ education.institution }} ({{ education.start_year }} - {{ education.end_year }})</p>
+        {% if education.description %}
+        <p>{{ education.description }}</p>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
