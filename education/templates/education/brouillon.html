@@ -14,11 +14,7 @@
                 <h3 class="education-degree">{{ education.degree }}</h3>
             </div>
             <p class="education-institution">{{ education.institution }}</p>
-            <p class="education-dates">
-                <span class="start-year">{{ education.start_year }}</span>
-                <span class="separator">-</span>
-                <span class="end-year">{{ education.end_year }}</span>
-            </p>
+            <p class="education-dates">{{ education.start_year }} - {{ education.end_year }}</p>
             {% if education.description %}
             <p class="education-description">{{ education.description }}</p>
             {% endif %}

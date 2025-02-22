@@ -1,0 +1,186 @@
+/* Conteneur principal */
+.education-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Titre principal */
+.education-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Grille des diplômes */
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Toujours 2 colonnes sur les grands écrans */
+    gap: 20px; /* Espace entre les cartes */
+}
+
+/* Carte diplôme */
+.education-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #4CAF50;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Alignement numéro + titre */
+.education-header {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espace entre le cercle et le titre */
+    margin-bottom: 10px;
+}
+
+/* Numéro circulaire */
+.education-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Titre diplôme */
+.education-degree {
+    color: #4CAF50;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+/* Institution */
+.education-institution {
+    font-size: 1.1rem;
+    color: #333; /* Couleur plus foncée */
+    margin-bottom: 5px;
+    font-weight: 600; /* Texte en gras */
+}
+
+/* Dates */
+.education-dates {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    text-align: center; /* Centrer le texte */
+    font-weight: 600; /* Texte en gras */
+    display: flex;
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement */
+    gap: 5px; /* Espace entre les éléments */
+}
+
+/* Style pour start_year (rouge) */
+.education-dates .start-year {
+    color: red;
+}
+
+/* Style pour le trait d'union (jaune) */
+.education-dates .separator {
+    color: rgb(202, 202, 17);
+    font-size: 1.5rem; /* Taille plus grande */
+    font-weight: bold; /* Texte en gras */
+    /* transform: scale(1.5); s */
+    /* margin: 0 10px; Espacement autour du trait */
+}
+
+/* Style pour end_year (vert) */
+.education-dates .end-year {
+    color: green;
+}
+
+/* Description */
+.education-description {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Media Queries pour le responsive */
+@media (max-width: 768px) {
+    .education-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur les écrans plus petits */
+    }
+
+    .education-container {
+        padding: 15px;
+    }
+
+    .education-card {
+        padding: 15px;
+    }
+
+    .education-header {
+        gap: 10px;
+    }
+
+    .education-number {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+
+    .education-degree {
+        font-size: 1.1rem;
+    }
+
+    .education-institution {
+        font-size: 1rem;
+    }
+
+    .education-dates {
+        font-size: 0.85rem;
+    }
+
+    .education-description {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .education-container {
+        margin: 20px auto;
+        padding: 10px;
+    }
+
+    .education-card {
+        padding: 10px;
+    }
+
+    .education-header {
+        gap: 8px;
+    }
+
+    .education-number {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+    }
+
+    .education-degree {
+        font-size: 1rem;
+    }
+
+    .education-institution {
+        font-size: 0.95rem;
+    }
+
+    .education-dates {
+        font-size: 0.8rem;
+    }
+
+    .education-description {
+        font-size: 0.9rem;
+    }
+}

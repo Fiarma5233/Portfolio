@@ -123,3 +123,71 @@
 .about-projects ol {
     list-style-type: decimal; /* Chiffres pour les projets */
 }
+
+/* Media Queries pour le responsive */
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur les écrans plus petits */
+    }
+
+    .about-container {
+        padding: 15px;
+    }
+
+    .about-image img {
+        max-width: 200px; /* Réduire la taille de l'image */
+    }
+
+    .about-description,
+    .about-goals {
+        font-size: 1rem; /* Réduire la taille de la police */
+    }
+
+    .about-skills h3,
+    .about-certifications h3,
+    .about-projects h3 {
+        font-size: 1.1rem; /* Réduire la taille des titres */
+    }
+
+    .about-skills ul,
+    .about-certifications ul,
+    .about-projects ol {
+        margin-left: 15px; /* Réduire la marge */
+    }
+
+    .about-goals {
+        padding: 10px; /* Réduire l'espace intérieur */
+    }
+}
+
+@media (max-width: 480px) {
+    .about-container {
+        margin: 20px auto;
+        padding: 10px;
+    }
+
+    .about-image img {
+        max-width: 150px; /* Réduire encore la taille de l'image */
+    }
+
+    .about-description,
+    .about-goals {
+        font-size: 0.95rem; /* Réduire la taille de la police */
+    }
+
+    .about-skills h3,
+    .about-certifications h3,
+    .about-projects h3 {
+        font-size: 1rem; /* Réduire la taille des titres */
+    }
+
+    .about-skills ul,
+    .about-certifications ul,
+    .about-projects ol {
+        margin-left: 10px; /* Réduire la marge */
+    }
+
+    .about-goals {
+        padding: 8px; /* Réduire l'espace intérieur */
+    }
+}
