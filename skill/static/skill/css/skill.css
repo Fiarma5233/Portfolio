@@ -1,0 +1,189 @@
+/* Conteneur principal */
+.skills-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Titre */
+.skills-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Grille des expériences (2x2) */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes */
+    grid-template-rows: repeat(2, auto); /* 2 lignes */
+    gap: 20px; /* Espace entre les cartes */
+    margin-bottom: 30px;
+}
+
+/* Carte d'expérience */
+.experience-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #4CAF50;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Titre de l'expérience */
+.experience-card h3 {
+    color: #4CAF50;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* Organisation et année */
+.experience-card .organization {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Description */
+.experience-card .description {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Lien de certification */
+.experience-card .certification-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.experience-card .certification-link:hover {
+    background-color: #45a049;
+}
+
+/* Pagination */
+.pagination {
+    margin-top: 30px;
+    text-align: center;
+    overflow-x: auto; /* Permettre le défilement horizontal si nécessaire */
+}
+
+.pagination .step-links {
+    display: inline-flex; /* Utiliser flexbox pour aligner les liens */
+    align-items: center;
+    gap: 10px; /* Espace entre les liens */
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    white-space: nowrap; /* Empêcher les liens de revenir à la ligne */
+}
+
+.pagination .pagination-link {
+    color: #4CAF50;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    flex-shrink: 0; /* Empêcher les liens de rétrécir */
+}
+
+.pagination .pagination-link:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.pagination .current {
+    margin: 0 10px;
+    font-weight: bold;
+    color: #333;
+    flex-shrink: 0; /* Empêcher le texte de rétrécir */
+}
+
+/* Media Queries pour le responsive */
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur les petits écrans */
+    }
+
+    .skills-container {
+        padding: 15px;
+    }
+
+    .experience-card {
+        padding: 15px;
+    }
+
+    .experience-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .experience-card .organization {
+        font-size: 0.95rem;
+    }
+
+    .experience-card .description {
+        font-size: 0.95rem;
+    }
+
+    .experience-card .certification-link {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+
+    .pagination .pagination-link {
+        padding: 4px 8px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .skills-container {
+        padding: 10px;
+    }
+
+    .experience-card {
+        padding: 10px;
+    }
+
+    .experience-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .experience-card .organization {
+        font-size: 0.9rem;
+    }
+
+    .experience-card .description {
+        font-size: 0.9rem;
+    }
+
+    .experience-card .certification-link {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+    }
+
+    .pagination .pagination-link {
+        padding: 3px 6px;
+        font-size: 0.85rem;
+    }
+}
