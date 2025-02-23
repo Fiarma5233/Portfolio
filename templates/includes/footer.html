@@ -26,12 +26,11 @@
             <h3>Mes Réalisations</h3>
             <div class="portfolio-grid">
                 <ul>
-                    <li><a href="https://hack2hire-techtech-datascience-18.onrender.com/" target="_blank">Hack2Hire 2024</a></li>
-                    <li><a href="https://www.site2.com" target="_blank">Site Web 2</a></li>
-                    <li><a href="https://www.site3.com" target="_blank">Site Web 3</a></li>
-                    <li><a href="https://www.site4.com" target="_blank">Site Web 4</a></li>
-                    <li><a href="https://www.site5.com" target="_blank">Site Web 5</a></li>
-                    <li><a href="https://www.site6.com" target="_blank">Site Web 6</a></li>
+                    {% for realisation in realisations %}
+                    <li>
+                        <a href="{{ realisation.link }}" target="_blank">{{ realisation.name }}</a>
+                    </li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>

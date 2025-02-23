@@ -1,72 +1,123 @@
+/* Conteneur principal du footer */
 footer {
-    background: #222;
-    color: #fff;
-    padding: 30px 0;
-    text-align: center;
+    background-color: #333; /* Couleur de fond sombre */
+    color: #fff; /* Texte en blanc */
+    padding: 20px;
+    font-family: Arial, sans-serif;
 }
 
+/* Conteneur des sections */
 .footer-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: flex-start;
+    flex-wrap: wrap; /* Permettre le retour à la ligne sur les petits écrans */
+    justify-content: space-between; /* Espacer les sections */
+    gap: 20px; /* Espace entre les sections */
     max-width: 1200px;
-    margin: auto;
-    padding: 20px;
+    margin: 0 auto; /* Centrer le contenu */
+    padding: 0 20px;
+}
+
+/* Section des réseaux sociaux */
+.social-links {
+    flex: 1; /* Prendre l'espace disponible */
+    min-width: 200px; /* Largeur minimale pour éviter un écrasement */
+}
+
+.social-links h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
 }
 
 .social-links ul {
     list-style: none;
     padding: 0;
+    display: flex;
+    gap: 10px; /* Espace entre les icônes */
 }
 
 .social-links ul li {
     display: inline-block;
-    margin: 0 10px;
 }
 
-.social-links img {
-    width: 40px;
+.social-links ul li a img {
+    width: 40px; /* Taille des icônes */
     height: 40px;
+    border-radius: 50%; /* Icônes rondes */
     transition: transform 0.3s ease;
 }
 
-.social-links img:hover {
-    transform: scale(1.1);
+.social-links ul li a img:hover {
+    transform: scale(1.1); /* Effet de zoom au survol */
 }
 
+/* Section des réalisations */
 .portfolio-links {
-    width: 50%;
-    max-width: 600px;
+    flex: 2; /* Prendre plus d'espace que la section des réseaux sociaux */
+    min-width: 300px; /* Largeur minimale pour éviter un écrasement */
 }
 
-.portfolio-grid ul {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+.portfolio-links h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.portfolio-links ul {
     list-style: none;
     padding: 0;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes */
+    gap: 10px; /* Espace entre les éléments */
 }
 
-.portfolio-grid ul li {
-    background: #333;
-    padding: 10px;
-    border-radius: 5px;
-    transition: background 0.3s;
+.portfolio-links ul li {
+    margin-bottom: 5px;
 }
 
-.portfolio-grid ul li a {
-    color: #fff;
+.portfolio-links ul li a {
+    color: #fff; /* Texte en blanc */
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-.portfolio-grid ul li:hover {
-    background: #444;
+.portfolio-links ul li a:hover {
+    color: #4CAF50; /* Couleur verte au survol */
 }
 
+/* Section du copyright */
 .footer-copyright {
-    width: 100%;
-    border-top: 1px solid #444;
-    padding-top: 10px;
+    text-align: center;
     margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #555; /* Ligne de séparation */
+}
+
+.footer-copyright p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Media Queries pour le responsive */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; /* Empiler les sections verticalement */
+        align-items: center; /* Centrer les sections */
+    }
+
+    .social-links, .portfolio-links {
+        text-align: center; /* Centrer le texte */
+    }
+
+    .social-links ul {
+        justify-content: center; /* Centrer les icônes */
+    }
+
+    .portfolio-links ul {
+        grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur les petits écrans */
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-links ul {
+        grid-template-columns: 1fr; /* 1 colonne sur les très petits écrans */
+    }
 }

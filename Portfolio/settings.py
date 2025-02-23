@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'education',
     'contact',
     'skill',
+    'realisations',  # Ajoutez votre nouvelle application ici
+
 ]
 
 MIDDLEWARE = [
@@ -77,6 +79,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'Portfolio.context_processors.current_year',  # Ajoutez cette ligne
+                'Portfolio.context_processors.realisations',
 
             ],
         },
