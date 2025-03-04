@@ -13,6 +13,14 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os
 
+import cloudinary.api
+from cloudinary.uploader import upload
+
+
+# importer decouple afin de pouvoir appeler les variabkes secretes
+from decouple import config
+import dj_database_url
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -21,7 +29,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-sr7=wiif*+%kg^$(jk&k4&obtwk$!oj35cgenil&ozcltkw6@^'
+#SECRET_KEY = 'django-insecure-sr7=wiif*+%kg^$(jk&k4&obtwk$!oj35cgenil&ozcltkw6@^'
+
+SECRET_KEY = config('SECRET_KEY')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -45,7 +56,8 @@ INSTALLED_APPS = [
     'contact',
     'skill',
     'realisations',  # Ajoutez votre nouvelle application ici
-
+    "cloudinary",
+    "cloudinary_storage",
 ]
 
 MIDDLEWARE = [
@@ -92,13 +104,26 @@ WSGI_APPLICATION = 'Portfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.parse(config('DATABASE_URL'))
 }
 
+# Pour les emails
+
+EMAIL_BACKEND = config('EMAIL_BACKEND')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS')
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = config('EMAIL_PORT')
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -144,10 +169,18 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
-# Chemin de base du projet
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# # Chemin de base du projet
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+CLOUDINARY_STORAGE = {
+    'CLOUDINARY_URL': config('CLOUDINARY_URL')
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -159,9 +192,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Ce fichier contient les elements pour l'envoi du mail
 
-EMAIL_BACKEND ="django.core.mail.backends.smtp.EmailBackend"
-EMAIL_USE_TLS = True
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_HOST_USER = "fiarmasome@gmail.com"
-EMAIL_HOST_PASSWORD = 'dfnbwqcmjkxdhutj'
-EMAAIL_PORT = 587
+# EMAIL_BACKEND ="django.core.mail.backends.smtp.EmailBackend"
+# EMAIL_USE_TLS = True
+# EMAIL_HOST = "smtp.gmail.com"
+# EMAIL_HOST_USER = "fiarmasome@gmail.com"
+# EMAIL_HOST_PASSWORD = 'dfnbwqcmjkxdhutj'
+# EMAAIL_PORT = 587
