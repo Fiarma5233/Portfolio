@@ -56,8 +56,8 @@ INSTALLED_APPS = [
     'contact',
     'skill',
     'realisations',  # Ajoutez votre nouvelle application ici
-    "cloudinary",
-    "cloudinary_storage",
+    #"cloudinary",
+    #"cloudinary_storage",
 ]
 
 MIDDLEWARE = [
@@ -177,10 +177,23 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-CLOUDINARY_STORAGE = {
-    'CLOUDINARY_URL': config('CLOUDINARY_URL')
-}
+###########
+# Configuration de Cloudinary
+# cloudinary.config(
+#     cloud_name=config('CLOUDINARY_CLOUD_NAME'),
+#     api_key=config('CLOUDINARY_API_KEY'),
+#     api_secret=config('CLOUDINARY_API_SECRET')
+# )
+
+# Définir le stockage par défaut pour les fichiers média
+#DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+#########
+
+
+#DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+# CLOUDINARY_STORAGE = {
+#     'CLOUDINARY_URL': config('CLOUDINARY_URL')
+# }
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -198,3 +211,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # EMAIL_HOST_USER = "fiarmasome@gmail.com"
 # EMAIL_HOST_PASSWORD = 'dfnbwqcmjkxdhutj'
 # EMAAIL_PORT = 587
+
+#print(config('CLOUDINARY_URL'))

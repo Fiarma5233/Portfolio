@@ -14,7 +14,7 @@
             <p class="organization">{{ experience.organization }} - {{ experience.year }}</p>
             <p class="description">{{ experience.description }}</p>
             {% if experience.certification_file %}
-            <a href="{{ experience.certification_file.url }}" target="_blank" class="certification-link">Voir la certification</a>
+            <a href="{{ experience.certification_file.url }}" target="_blank" class="certification-link" >Voir la certification</a>
             {% endif %}
         </div>
         {% endfor %}
